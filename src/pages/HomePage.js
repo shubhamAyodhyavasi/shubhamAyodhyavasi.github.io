@@ -4,7 +4,7 @@ import { Banner } from '../components';
 const HomePage = () => {
 
     return(
-        <div class="p-home">
+        <div className="p-home">
             <Banner />
         </div>
     )

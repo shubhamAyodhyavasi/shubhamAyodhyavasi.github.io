@@ -3,8 +3,8 @@ import React from 'react';
 const TopHeader = () => {
 
     return (
-        <div class="c-top-header bg-light p-3">
-            <div class="container">
+        <div className="c-top-header bg-light p-3">
+            <div className="container">
                 <div className="text-white">
                     
                 </div>

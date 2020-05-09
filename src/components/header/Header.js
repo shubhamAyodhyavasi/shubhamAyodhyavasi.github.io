@@ -23,8 +23,8 @@ const Header = () => {
         },
     ]
     return (
-        <div class="c-header bg-white border-bottom">
-            <div class="container">
+        <div className="c-header bg-white border-bottom">
+            <div className="container">
                 <nav className="navbar">
                     <ul className="ml-auto nav">
                         {menus.map((menu, key) => <NavItem key={key} link={menu.link} label={menu.label} />)}

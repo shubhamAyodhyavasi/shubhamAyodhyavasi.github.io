@@ -4,8 +4,8 @@ import imgPack from '../../images';
 const Banner = () => {
 
     return (
-        <div class="c-banner bg-white py-5">
-            <div class="container">
+        <div className="c-banner bg-white py-5">
+            <div className="container">
                 <div className="row align-items-center">
                     <div className="col-md-5">
                         <img className="img-fluid" src={imgPack.banner} alt="shubham"/>

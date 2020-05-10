@@ -1,8 +1,6 @@
-@import './styles/variable.bootstrap.scss';
+@import './styles/variable.bootstrap';
 @import '~bootstrap/scss/bootstrap.scss';
-@import './styles/more.bootstrap.scss';
+@import './styles/mixin';
+@import './styles/more.bootstrap';
+@import './styles/site';
 @import './components/components';
-
-*{
-  cursor: none;
-}

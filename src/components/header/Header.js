@@ -1,13 +1,16 @@
 import React from 'react';
-
-const NavItem = ({children, label, link}) => {
+import { connect } from 'react-redux'
+import classNames from 'classnames';
+const NavItem = ({children, label, link, themeMode}) => {
     return(
         <li className="nav-item">
-            <a className="nav-link" href={link}>{label}{children}</a>
+            <a className={classNames("nav-link", {
+                "text-info": themeMode === "dark"
+            })} href={link}>{label}{children}</a>
         </li>
     )
 }
-const Header = () => {
+const Header = (props) => {
     const menus = [
         {
             link: "#",
@@ -22,12 +25,17 @@ const Header = () => {
             label: "Contact"
         },
     ]
+    const isDark = props.themeMode === "dark";
+    const bgClass = isDark ? "bg-dark" : "bg-white";
     return (
-        <div className="c-header bg-white border-bottom">
+        <div className={classNames("c-header border-bottom", {
+            [bgClass]: bgClass, 
+            "border-secondary" : isDark
+        })}>
             <div className="container">
                 <nav className="navbar">
                     <ul className="ml-auto nav">
-                        {menus.map((menu, key) => <NavItem key={key} link={menu.link} label={menu.label} />)}
+                        {menus.map((menu, key) => <NavItem themeMode={props.themeMode} key={key} link={menu.link} label={menu.label} />)}
                     </ul>
                 </nav>
             </div>
@@ -35,4 +43,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    themeMode: state.theme.mode
+})
+export default connect(mapStateToProps)(Header);

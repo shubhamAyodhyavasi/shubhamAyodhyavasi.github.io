@@ -1,7 +1,9 @@
 import banner from './banner.png';
+import about from './about.png';
 
 const imgPack = {
-    banner
+    banner,
+    about
 };
 
 export default imgPack

@@ -1,0 +1,5 @@
+@mixin addTag($tag: div){
+    @at-root #{$tag}#{&} {
+        @content;
+    }
+}

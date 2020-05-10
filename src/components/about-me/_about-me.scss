@@ -1,0 +1,12 @@
+.c-about-me{
+    overflow: hidden;
+    &__img{
+        position: absolute;
+        top: -12rem;
+        left: 0;
+        right: 0;
+        &-wrapper{
+            position: relative;
+        }
+    }
+}

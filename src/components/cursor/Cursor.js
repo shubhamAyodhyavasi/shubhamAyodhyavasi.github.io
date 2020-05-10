@@ -1,11 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class Cursor extends React.Component{
     constructor(){
         super();
         this.state = {
             pos: [0,0],
-            posBack: [0, 0]
+            posBack: [0, 0],
+            isClickable: false,
         }
     }
     componentDidMount(){
@@ -17,24 +19,45 @@ class Cursor extends React.Component{
     handleMouseMove = e => {
         const {
             clientX,
-            clientY
+            clientY,
+            target
         } = e
-        this.setState({pos: [clientX, clientY]});
+        const hoverClassList = [
+            "nav-link",
+            "app-link",
+            "btn"
+        ]
+        const classList = (target?.className || "").split(" ");
+        const isClickable = classList.some(cls => hoverClassList.includes(cls) )
+        
+        this.setState({
+            pos: [clientX, clientY],
+            isClickable
+        });
         setTimeout(() => {
             this.setState({posBack: [clientX, clientY]});
         }, 50);
     };
     render(){
+        const {
+            pos,
+            posBack,
+            isClickable
+        } = this.state
         return (
             <>
             <div style={{
-                top: this.state.pos[1],
-                left: this.state.pos[0],
-            }} className="c-cursor" />
+                top: pos[1],
+                left: pos[0],
+            }} className={classNames("c-cursor", {
+                "c-cursor--hovered": isClickable
+            })} />
             <div style={{
-                top: this.state.posBack[1],
-                left: this.state.posBack[0],
-            }} className="c-cursor c-cursor--back" />
+                top: posBack[1],
+                left: posBack[0],
+            }} className={classNames("c-cursor c-cursor--back", {
+                "c-cursor--hovered": isClickable
+            })} />
             </>
         )
     }

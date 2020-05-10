@@ -1,11 +1,12 @@
 import React from 'react';
-import { Banner } from '../components';
+import { Banner, AboutMe } from '../components';
 
 const HomePage = () => {
 
     return(
         <div className="p-home">
             <Banner />
+            <AboutMe />
         </div>
     )
 }

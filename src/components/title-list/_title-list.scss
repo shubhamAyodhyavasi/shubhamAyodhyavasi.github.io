@@ -1,0 +1,16 @@
+.c-title-list{
+    &__label{
+        display: inline-block;
+        min-width: 100px;
+        color: $dark;
+    }
+    &__value{
+        display: inline-block;
+        color: $gray-600;
+        @include addTag(a){
+            &:hover{
+                color: $gray-800;
+            }
+        }
+    }
+}

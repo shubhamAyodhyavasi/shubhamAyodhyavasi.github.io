@@ -3,28 +3,25 @@ import './App.scss';
 import { HomePage } from './pages'
 import { TopHeader, Header, Cursor } from './components';
 import { connect } from 'react-redux'
-import { setTheme } from './services/redux/actions'
-
+import { setTheme, toggleThemeMode } from './services/redux/actions'
+import classNames from 'classnames'
 class App extends React.Component {
   componentDidMount(){
     const {
-      setTheme
+      isSetByUser
     } = this.props
-    const today = new Date().getHours();
-    if (today >= 5 && today <= 19) {
+    const isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+    if(!isSetByUser){
       setTheme({
-        mode: "light",
-      })
-    } else {
-      setTheme({
-        mode: "dark",
+        mode: isDark ? "dark" : "light"
       })
     }
-
   }
   render(){
     return (
-      <div className="App">
+      <div className={classNames("App", {
+        "bg-dark": this.props.themeMode === "dark"
+      })}>
         <Cursor />
         <TopHeader />
         <Header />
@@ -33,6 +30,11 @@ class App extends React.Component {
     );
   }
 }
-export default connect(null, {
-  setTheme
+const mapStateToProps = (state) => ({
+    themeMode: state.theme.mode,
+    isSetByUser: state.theme.isSetByUser
+})
+export default connect(mapStateToProps, {
+  setTheme,
+  toggleThemeMode
 })(App);

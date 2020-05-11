@@ -13,7 +13,8 @@ const middlewares = [
     createStateSyncMiddleware({
         // blacklist: ["extras"]
         whitelist: [
-            "user"
+            "user",
+            "theme"
         ]
     })
 ]
@@ -22,7 +23,8 @@ const persistConfig = {
     key: "root",
     storage,
     whitelist: [
-        "user"
+        "user",
+        "theme"
     ]
 }
 // const sessionRedConfig = {

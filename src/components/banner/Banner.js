@@ -5,9 +5,8 @@ import classNames from 'classnames';
 
 const Banner = (props) => {
     const isDark = props.themeMode === "dark";
-    const bgClass = isDark ? "bg-dark" : "bg-white";
     return (
-        <div className={`c-banner py-5 ${bgClass}`}>
+        <div className={`c-banner py-5 `}>
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-md-5">

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames'
 import { connect } from 'react-redux';
+import ThemeSwitch from '../theme-switch/ThemeSwitch';
 
 const TopHeader = (props) => {
     const textClass = props.themeMode === 'light' ? 'text-dark' : 'text-white'
@@ -11,7 +12,7 @@ const TopHeader = (props) => {
         })}>
             <div className="container">
                 <div className={textClass}>
-                    
+                    <ThemeSwitch />
                 </div>
             </div>
         </div>

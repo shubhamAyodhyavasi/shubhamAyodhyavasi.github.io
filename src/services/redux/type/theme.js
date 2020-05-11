@@ -1,1 +1,2 @@
 export const SET_THEME = "SET_THEME";
+export const TOGGLE_THEME_MODE = "TOGGLE_THEME_MODE";

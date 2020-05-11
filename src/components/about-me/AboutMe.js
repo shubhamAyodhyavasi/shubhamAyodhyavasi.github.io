@@ -43,10 +43,13 @@ export class AboutMe extends Component {
                 value: "Indore, India (452010)",
             },
         ]
+        const isDark = this.props.themeMode === "dark";
+        const bgColor = isDark ? "bg-darker text-white" : "bg-light";
+        const btnColor = isDark ? "btn-dark" : "btn-outline-dark"
         return (
             <div className="c-about-me pt-5">
                 <div className="pt-5"></div>
-                <div className="c-about-me__inner bg-light py-5">
+                <div className={`c-about-me__inner pt-5 pb-4 ${bgColor}`}>
                     <div className="container">
                         {/* <div className="p-5"></div> */}
                         <Title>About Me</Title>
@@ -68,8 +71,8 @@ export class AboutMe extends Component {
                                     <div className="col-md-6">
                                         <TitleList list={listTwo} />
                                     </div>
-                                    <div className="col-12 text-center pt-4">
-                                        <a href="#" className="btn btn-outline-dark">Download CV</a>
+                                    <div className="col-12 pt-4">
+                                        <a href="#" className={`btn ${btnColor}`}>Download CV</a>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +85,7 @@ export class AboutMe extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    
+    themeMode: state.theme.mode
 })
 
 const mapDispatchToProps = {

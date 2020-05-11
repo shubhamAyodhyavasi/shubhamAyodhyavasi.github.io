@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 export class TitleList extends Component {
     render() {
+        
+        const isDark = this.props.themeMode === "dark"
         return (
             <div className="c-title-list">
                 {
                     this.props.list.map(
-                        (item, key) => <TitleListItem {...item} key={key} />
+                        (item, key) => <TitleListItem isDark={isDark} {...item} key={key} />
                     )
                 }
                 
@@ -16,11 +19,13 @@ export class TitleList extends Component {
     }
 }
 
-const TitleListItem = ({label, value, valueLink}) => {
+const TitleListItem = ({label, value, valueLink, isDark}) => {
     
     return(
         <div className="c-title-list__item">
-            <span className="c-title-list__label">{label}: </span>
+            <span className={classNames("c-title-list__label", {
+                "text-light": isDark
+            })}>{label}: </span>
             {
                 value && (valueLink ? <a href={valueLink} className="c-title-list__value app-link">{value}</a>: <span className="c-title-list__value">{value}</span>)
             }
@@ -29,7 +34,7 @@ const TitleListItem = ({label, value, valueLink}) => {
     )
 }
 const mapStateToProps = (state) => ({
-    
+    themeMode: state.theme.mode
 })
 
 const mapDispatchToProps = {

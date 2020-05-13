@@ -1,0 +1,142 @@
+.c-timeline{
+    &__item{
+        $self: #{&};
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+        
+        &-inner{
+            position: relative;
+            padding: 1.5rem 1rem;
+        }
+        &-box{
+            background-color: $white;
+            color: $darker;
+            * {
+                color: $darker;
+            }
+            @include darkTheme{
+                color: $white;
+                background-color: $dark;
+                * {
+                    color: $white;
+                }
+            }
+        }
+        &-title{
+            color: $darker;
+            font-weight: 300;
+            @include darkTheme{
+                color: $light;
+            }
+        }
+        &--left, &--right{
+            #{$self}-inner{
+                width: calc(50% - 50px);
+                &:after, &:before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 3rem;
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    border-radius: 50%;
+                }
+                &:before{
+                    z-index: 2;
+                    border: .1rem solid transparent;
+                    box-shadow: inset 0 0 0 .4rem $white;
+                    padding: 0.3rem;
+                    @include darkTheme{
+                        box-shadow: inset 0 0 0 .4rem $dark;
+                    }
+                }
+                &:after{
+                    z-index: 1;
+                    // background-color: $yellow;
+                    @include gradient-directional($yellow, $pink)
+                }
+            }
+            #{$self}-box{
+                padding: 1rem;
+                border-radius: $border-radius;
+                box-shadow: $box-shadow;
+            }
+        }
+        &--left{
+            justify-content: flex-start;
+            #{$self}-inner{
+                &:before, &:after{
+                    right: calc(-50px - 0.8rem);
+                }
+            }
+        }
+        &--right{
+            justify-content: flex-end;
+            #{$self}-inner{
+                &:before, &:after{
+                    left: calc(-50px - 0.8rem);
+                }
+            }
+        }
+        &--start, &--end{
+            background-color: $white;
+            @include darkTheme{
+                background-color: $darker;
+                #{$self}-box{
+                    background-color: $darker;
+                }
+            }
+            #{$self}-inner{
+                text-align: center;
+            }
+        }
+        &--start{
+            #{$self}-inner{
+                padding-bottom: 0;
+                &:after{
+                    content: "";
+                    height: 2px;
+                    width: 50px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    background-color: rgba($dark, .5);
+                    @include darkTheme{
+                        background-color: $dark;
+                    }
+                }
+            }
+        }
+        &--end{
+            #{$self}-inner{
+                padding-top: 0;
+            }
+        }
+    }
+    &__line{
+        width: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: rgba($dark, .5);
+        z-index: 0;
+    }
+    &__item-holder{
+        position: relative;
+    }
+    &--dark{
+        .c-timeline{
+            &__line{
+                background-color: $dark;
+            }
+        }
+    }
+}

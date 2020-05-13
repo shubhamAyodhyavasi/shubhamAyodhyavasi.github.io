@@ -3,3 +3,18 @@
         @content;
     }
 }
+@mixin version($version) {
+    &--#{$version} {
+        @content;
+    }
+}
+@mixin darkTheme {
+    [theme="dark"] & {
+        @content;
+    }
+}
+@mixin gradientText($color1, $color2, $deg) {
+    @include gradient-directional($yellow, $pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

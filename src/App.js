@@ -18,9 +18,12 @@ class App extends React.Component {
     }
   }
   render(){
+    const {
+      themeMode
+    } = this.props
     return (
-      <div className={classNames("App", {
-        "bg-dark": this.props.themeMode === "dark"
+      <div theme={themeMode} className={classNames("App", {
+        "bg-darker": themeMode === "dark"
       })}>
         <Cursor />
         <TopHeader />

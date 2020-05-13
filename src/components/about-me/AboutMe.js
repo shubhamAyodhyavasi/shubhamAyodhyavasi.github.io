@@ -44,8 +44,8 @@ export class AboutMe extends Component {
             },
         ]
         const isDark = this.props.themeMode === "dark";
-        const bgColor = isDark ? "bg-darker text-white" : "bg-light";
-        const btnColor = isDark ? "btn-dark" : "btn-outline-dark"
+        const bgColor = isDark ? "bg-dark text-white" : "bg-light";
+        const btnColor = isDark ? "btn-darker" : "btn-outline-dark"
         return (
             <div className="c-about-me pt-5">
                 <div className="pt-5"></div>

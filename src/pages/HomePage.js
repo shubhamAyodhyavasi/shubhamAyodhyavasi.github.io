@@ -1,5 +1,5 @@
 import React from 'react';
-import { Banner, AboutMe, TimeLine } from '../components';
+import { Banner, AboutMe, TimeLine, Carousel } from '../components';
 
 const HomePage = () => {
     const timelineData = {
@@ -87,6 +87,7 @@ const HomePage = () => {
             <Banner />
             <AboutMe />
             <TimeLine data={timelineData} />
+            <Carousel />
         </div>
     )
 }

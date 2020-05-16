@@ -2,13 +2,38 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames';
 
+
+const Item = ({ position, children, title }) => {
+    const positionClass = position && `c-timeline__item--${position}`
+    const innerPosClass = position && `c-timeline__item-inner--${position}`
+    return (
+        <div className={classNames("c-timeline__item", positionClass)}>
+            <div className={classNames("c-timeline__item-inner", innerPosClass,)}>
+                <div className="c-timeline__item-box">
+                    <h3 className="c-timeline__item-title">{title}</h3>
+                    {children}
+                </div>
+            </div>
+        </div>
+    )
+}
+const StarterItem = ({title, children}) => {
+    return (
+        <Item position="start">
+            {title && <p className="display-5">{title}</p>}
+            {children}
+        </Item>
+    )
+}
+const EndItem = ({title, children}) => {
+    return (
+        <Item title={title} position="end">
+            {children}
+        </Item>
+    )
+}
 export class TimeLine extends Component {
     render() {
-        const {
-            StarterItem,
-            Item,
-            EndItem
-        } = this
         const {
             data
         } = this.props
@@ -21,7 +46,7 @@ export class TimeLine extends Component {
                         {data.start && <StarterItem title={data.start.title} />}
                         {
                             (data.items || []).map((item, key) => {
-                                return <Item title={item.title} position={key % 2 === 0 ? "left" : "right"} >
+                                return <Item key={key} title={item.title} position={key % 2 === 0 ? "left" : "right"} >
                                     {item.content}
                                 </Item>
                             })
@@ -32,35 +57,6 @@ export class TimeLine extends Component {
                     </div>
                 </div>
             </div>
-        )
-    }
-    Item = ({ position, children, title }) => {
-        const positionClass = position && `c-timeline__item--${position}`
-        const innerPosClass = position && `c-timeline__item-inner--${position}`
-        return (
-            <div className={classNames("c-timeline__item", positionClass)}>
-                <div className={classNames("c-timeline__item-inner", innerPosClass,)}>
-                    <div className="c-timeline__item-box">
-                        <h3 className="c-timeline__item-title">{title}</h3>
-                        {children}
-                    </div>
-                </div>
-            </div>
-        )
-    }
-    StarterItem = ({title, children}) => {
-        return (
-            <this.Item position="start">
-                {title && <p className="display-5">{title}</p>}
-                {children}
-            </this.Item>
-        )
-    }
-    EndItem = ({title, children}) => {
-        return (
-            <this.Item title={title} position="end">
-                {children}
-            </this.Item>
         )
     }
 }

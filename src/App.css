@@ -1,0 +1,9 @@
+/* App-level styles - dark mode portfolio */
+* {
+  cursor: default;
+}
+
+a, button, [role="button"] {
+  cursor: pointer;
+}
+

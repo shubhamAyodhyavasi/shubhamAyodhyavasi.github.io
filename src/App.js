@@ -1,38 +1,47 @@
 import React from 'react';
-import './App.scss';
+import './App.css';
 import { HomePage } from './pages'
-import { TopHeader, Header, Cursor } from './components';
+import { Navbar } from './components';
 import { connect } from 'react-redux'
 import { setTheme, toggleThemeMode } from './services/redux/actions'
-import classNames from 'classnames'
+
 class App extends React.Component {
   componentDidMount(){
-    const {
-      isSetByUser
-    } = this.props
-    const isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-    if(!isSetByUser){
-      setTheme({
-        mode: isDark ? "dark" : "light"
-      })
+    const { isSetByUser } = this.props;
+    const isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (!isSetByUser) {
+      setTheme({ mode: isDark ? "dark" : "light" });
+    }
+    this.updateDarkClass(this.props.themeMode);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.themeMode !== this.props.themeMode) {
+      this.updateDarkClass(this.props.themeMode);
     }
   }
-  render(){
-    const {
-      themeMode
-    } = this.props
+
+  updateDarkClass(mode) {
+    if (mode === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+
+  render() {
+    const isDark = this.props.themeMode === 'dark';
     return (
-      <div theme={themeMode} className={classNames("App", {
-        "bg-darker": themeMode === "dark"
-      })}>
-        <Cursor />
-        <TopHeader />
-        <Header />
+      <div className={`min-h-screen font-sans transition-colors duration-300 ${
+        isDark ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'
+      }`}>
+        <Navbar />
         <HomePage />
       </div>
     );
   }
 }
+
 const mapStateToProps = (state) => ({
     themeMode: state.theme.mode,
     isSetByUser: state.theme.isSetByUser

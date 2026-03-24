@@ -9,6 +9,7 @@
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "flickity": "^2.2.1",
+    "framer-motion": "^4.1.17",
     "gh-pages": "^2.2.0",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",

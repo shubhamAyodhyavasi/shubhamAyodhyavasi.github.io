@@ -41,10 +41,53 @@ const MoonIcon = () => (
   </svg>
 );
 
+const SystemIcon = () => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="3" width="20" height="14" rx="2" />
+    <line x1="8" y1="21" x2="16" y2="21" />
+    <line x1="12" y1="17" x2="12" y2="21" />
+  </svg>
+);
+
+const ThemeControls = ({ isDark, toggleTheme, isSystemTheme, resetToSystem }) => (
+  <div className="flex items-center">
+    <motion.button
+      onClick={toggleTheme}
+      className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      aria-label="Toggle theme"
+    >
+      {isDark ? <SunIcon /> : <MoonIcon />}
+    </motion.button>
+    {!isSystemTheme && (
+      <motion.button
+        onClick={resetToSystem}
+        className="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800 transition-all"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        aria-label="Use system theme"
+        title="Use system theme"
+      >
+        <SystemIcon />
+      </motion.button>
+    )}
+  </div>
+);
+
 const SCROLL_OFFSET = 100;
 
 const Navbar = () => {
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, isSystemTheme, resetToSystem } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -71,6 +114,8 @@ const Navbar = () => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const themeProps = { isDark, toggleTheme, isSystemTheme, resetToSystem };
 
   return (
     <motion.nav
@@ -123,15 +168,7 @@ const Navbar = () => {
 
           {/* Right side: theme toggle + resume */}
           <div className="hidden md:flex items-center gap-3">
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle theme"
-            >
-              {isDark ? <SunIcon /> : <MoonIcon />}
-            </motion.button>
+            <ThemeControls {...themeProps} />
             <motion.a
               href={RESUME_LINK}
               target="_blank"
@@ -146,13 +183,7 @@ const Navbar = () => {
 
           {/* Mobile: theme + hamburger */}
           <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-slate-400 hover:text-white transition-colors"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <SunIcon /> : <MoonIcon />}
-            </button>
+            <ThemeControls {...themeProps} />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all"

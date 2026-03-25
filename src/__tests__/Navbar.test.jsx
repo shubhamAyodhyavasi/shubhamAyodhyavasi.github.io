@@ -11,6 +11,10 @@ const renderNavbar = () =>
   );
 
 describe('Navbar', () => {
+  beforeEach(() => {
+    window.localStorage.getItem.mockReturnValue(null);
+    document.documentElement.classList.remove('dark');
+  });
   it('renders the logo', () => {
     renderNavbar();
     expect(screen.getAllByText('<SA />').length).toBeGreaterThan(0);
@@ -37,6 +41,26 @@ describe('Navbar', () => {
     fireEvent.click(btn);
     // After toggle, the mode changes (tested via ThemeContext tests)
     expect(btn).toBeInTheDocument();
+  });
+
+  it('shows system reset button after manual theme toggle', () => {
+    renderNavbar();
+    // Initially in system mode — no reset button
+    expect(screen.queryAllByLabelText('Use system theme').length).toBe(0);
+    // Toggle to manual
+    fireEvent.click(screen.getAllByLabelText('Toggle theme')[0]);
+    // Reset button should now appear
+    expect(screen.getAllByLabelText('Use system theme').length).toBeGreaterThan(0);
+  });
+
+  it('resets to system theme when system reset button is clicked', () => {
+    renderNavbar();
+    // Toggle to manual
+    fireEvent.click(screen.getAllByLabelText('Toggle theme')[0]);
+    const resetBtn = screen.getAllByLabelText('Use system theme')[0];
+    fireEvent.click(resetBtn);
+    // System button should disappear again
+    expect(screen.queryAllByLabelText('Use system theme').length).toBe(0);
   });
 
   it('opens and closes mobile menu', () => {

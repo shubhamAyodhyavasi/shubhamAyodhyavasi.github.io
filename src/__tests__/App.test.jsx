@@ -26,6 +26,6 @@ describe('App', () => {
   it('applies dark class wrapper when isDark is true', () => {
     window.localStorage.getItem.mockReturnValue('dark');
     const { container } = renderWithTheme(<App />);
-    expect(container.firstChild).toHaveClass('bg-slate-950');
+    expect(container.firstChild).toHaveClass('dark:bg-slate-950');
   });
 });

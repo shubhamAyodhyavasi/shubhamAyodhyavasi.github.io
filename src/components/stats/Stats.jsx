@@ -49,7 +49,7 @@ const Stats = () => {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="stats" className="py-20 bg-slate-900 relative overflow-hidden">
+    <section id="stats" className="py-20 bg-slate-100 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden">
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #6366f1, transparent)' }}
@@ -66,7 +66,7 @@ const Stats = () => {
             <motion.div
               key={stat.label}
               variants={cardVariants}
-              className="group relative p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-indigo-500/40 transition-all duration-300 text-center overflow-hidden"
+              className="group relative p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:border-indigo-500/40 transition-all duration-300 text-center overflow-hidden"
               whileHover={{ scale: 1.03, y: -4 }}
             >
               <div
@@ -86,8 +86,8 @@ const Stats = () => {
               >
                 <CountUp target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-white font-semibold text-base mb-1">{stat.label}</div>
-              <div className="text-slate-400 text-xs">{stat.description}</div>
+              <div className="text-slate-900 dark:text-white font-semibold text-base mb-1">{stat.label}</div>
+              <div className="text-slate-500 dark:text-slate-400 text-xs">{stat.description}</div>
             </motion.div>
           ))}
         </motion.div>

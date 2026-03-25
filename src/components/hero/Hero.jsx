@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HERO, TYPING_TEXTS, TECH_STACK, CONTACT } from '../../constants/content';
+import { Pill } from '../basic';
 
 const TypingText = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -80,7 +81,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-slate-950 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden"
     >
       <BlobBg />
 
@@ -101,7 +102,7 @@ const Hero = () => {
         {/* Name */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4"
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4"
         >
           {HERO.name.split(' ')[0]}{' '}
           <span
@@ -115,7 +116,7 @@ const Hero = () => {
         {/* Typing title */}
         <motion.h2
           variants={itemVariants}
-          className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 mb-3 min-h-[2em]"
+          className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-3 min-h-[2em]"
         >
           <TypingText />
         </motion.h2>
@@ -123,7 +124,7 @@ const Hero = () => {
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           {HERO.subtitle}
         </motion.p>
@@ -145,7 +146,7 @@ const Hero = () => {
             href={CONTACT.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white font-semibold text-base transition-all duration-200"
+            className="px-8 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-indigo-500 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-semibold text-base transition-all duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -156,23 +157,20 @@ const Hero = () => {
         {/* Tech stack chips */}
         <motion.div variants={itemVariants} className="mt-12 flex flex-wrap gap-2 justify-center">
           {TECH_STACK.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-xs font-mono rounded-md bg-slate-800 text-slate-400 border border-slate-700"
-            >
+            <Pill key={tech} variant="slate">
               {tech}
-            </span>
+            </Pill>
           ))}
         </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 flex flex-col items-center gap-2 text-slate-600"
+          className="mt-16 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-600"
         >
           <span className="text-xs font-mono">scroll down</span>
           <motion.div
-            className="w-5 h-9 rounded-full border-2 border-slate-700 flex items-start justify-center p-1"
+            className="w-5 h-9 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-start justify-center p-1"
             initial={{ opacity: 0.5 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}

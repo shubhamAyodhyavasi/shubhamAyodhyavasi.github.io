@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
-import { NAV_LINKS } from '../../constants/content';
+import { NAV_LINKS, RESUME_LINK } from '../../constants/content';
 
 const SunIcon = () => (
   <svg
@@ -133,7 +133,9 @@ const Navbar = () => {
               {isDark ? <SunIcon /> : <MoonIcon />}
             </motion.button>
             <motion.a
-              href="#"
+              href={RESUME_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -207,7 +209,9 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#"
+                href={RESUME_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-2 px-4 py-3 rounded-lg bg-indigo-600 text-white text-sm font-medium text-center"
               >
                 Resume

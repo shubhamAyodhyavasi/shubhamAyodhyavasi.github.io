@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { HERO, TYPING_TEXTS, TECH_STACK } from '../../constants/content';
+import { HERO, TYPING_TEXTS, TECH_STACK, CONTACT } from '../../constants/content';
 
 const TypingText = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -142,7 +142,9 @@ const Hero = () => {
             {HERO.cta[0]}
           </motion.button>
           <motion.a
-            href="#"
+            href={CONTACT.resume}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-3.5 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white font-semibold text-base transition-all duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}

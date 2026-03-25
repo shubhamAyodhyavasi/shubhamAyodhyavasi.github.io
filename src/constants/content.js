@@ -122,3 +122,4 @@ export const SOCIAL_LINKS = [
 ];
 
 export const CONTACT_EMAIL = content.contact.email;
+export const RESUME_LINK = content.contact.resume;

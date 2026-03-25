@@ -23,9 +23,10 @@ describe('Footer', () => {
     expect(screen.getByText('Say Hello')).toBeInTheDocument();
   });
 
-  it('renders the phone number', () => {
+  it('renders the WhatsApp link', () => {
     render(<Footer />);
-    expect(screen.getByText(/8982966776/)).toBeInTheDocument();
+    expect(screen.getByText('Let’s talk')).toBeInTheDocument();
+    expect(screen.getByText('Let’s talk').closest('a')).toHaveAttribute('href', 'https://wa.me/+918982966776');
   });
 
   it('renders social links', () => {

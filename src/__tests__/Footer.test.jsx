@@ -23,6 +23,11 @@ describe('Footer', () => {
     expect(screen.getByText('Say Hello')).toBeInTheDocument();
   });
 
+  it('renders the phone number', () => {
+    render(<Footer />);
+    expect(screen.getByText(/8982966776/)).toBeInTheDocument();
+  });
+
   it('renders social links', () => {
     render(<Footer />);
     expect(screen.getByLabelText('GitHub')).toBeInTheDocument();
@@ -32,7 +37,7 @@ describe('Footer', () => {
 
   it('renders the footer tagline', () => {
     render(<Footer />);
-    expect(screen.getByText(/<SA \/>.*Backend Engineer.*Indore, India/)).toBeInTheDocument();
+    expect(screen.getByText(/<SA \/>.*Frontend Engineer.*India/)).toBeInTheDocument();
   });
 
   it('renders the copyright notice', () => {
@@ -51,3 +56,4 @@ describe('Footer', () => {
     expect(sayHello).toHaveAttribute('href', 'mailto:shubhamgupta279@gmail.com');
   });
 });
+

@@ -62,20 +62,28 @@ const ProjectCard = ({ project }) => (
       </h3>
       <p className="text-slate-400 text-sm mb-4 leading-relaxed">{project.description}</p>
 
-      <div className="space-y-3 mb-5 text-sm">
-        <div className="flex gap-2">
-          <span className="text-red-400 font-semibold shrink-0 w-20">Problem:</span>
-          <span className="text-slate-400">{project.problem}</span>
+      {(project.problem || project.solution || project.impact) && (
+        <div className="space-y-3 mb-5 text-sm">
+          {project.problem && (
+            <div className="flex gap-2">
+              <span className="text-red-400 font-semibold shrink-0 w-20">Problem:</span>
+              <span className="text-slate-400">{project.problem}</span>
+            </div>
+          )}
+          {project.solution && (
+            <div className="flex gap-2">
+              <span className="text-yellow-400 font-semibold shrink-0 w-20">Solution:</span>
+              <span className="text-slate-400">{project.solution}</span>
+            </div>
+          )}
+          {project.impact && (
+            <div className="flex gap-2">
+              <span className="text-green-400 font-semibold shrink-0 w-20">Impact:</span>
+              <span className="text-slate-300 font-medium">{project.impact}</span>
+            </div>
+          )}
         </div>
-        <div className="flex gap-2">
-          <span className="text-yellow-400 font-semibold shrink-0 w-20">Solution:</span>
-          <span className="text-slate-400">{project.solution}</span>
-        </div>
-        <div className="flex gap-2">
-          <span className="text-green-400 font-semibold shrink-0 w-20">Impact:</span>
-          <span className="text-slate-300 font-medium">{project.impact}</span>
-        </div>
-      </div>
+      )}
 
       <div className="flex flex-wrap gap-1.5 mb-6 mt-auto">
         {project.tags.map((tag) => (

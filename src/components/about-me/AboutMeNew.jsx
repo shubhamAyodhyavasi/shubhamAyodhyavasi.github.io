@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import useInView from '../../hooks/useInView';
-import { SKILLS, ABOUT_QUICK_INFO } from '../../constants/content';
+import { SKILLS, ABOUT_QUICK_INFO, SUMMARY } from '../../constants/content';
 
 const containerVariants = {
   hidden: {},
@@ -49,7 +49,7 @@ const AboutMe = () => {
                 SA
               </div>
               <h3 className="text-white font-bold text-lg">Shubham Ayodhyavasi</h3>
-              <p className="text-indigo-400 text-sm mt-1">Backend Engineer · 4 YOE</p>
+              <p className="text-indigo-400 text-sm mt-1">Frontend Engineer · 6 YOE</p>
               <div className="mt-4 flex items-center justify-center gap-2 text-green-400 text-sm">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 Available for opportunities
@@ -74,19 +74,7 @@ const AboutMe = () => {
               className="p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50"
             >
               <h3 className="text-white font-semibold mb-3">My Story</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-3">
-                I&apos;m a backend-focused software engineer with 4+ years of experience building
-                scalable microservices and distributed systems. I specialize in designing
-                high-performance APIs, cloud-native architectures, and event-driven systems that
-                serve millions of users reliably.
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Beyond code, I&apos;m passionate about DevOps culture, cost optimization, and
-                mentoring engineers. I&apos;ve reduced AWS costs by{' '}
-                <span className="text-indigo-400 font-medium">80%</span> and improved system
-                performance by <span className="text-indigo-400 font-medium">50%</span> through
-                architectural decisions and automation.
-              </p>
+              <p className="text-slate-400 text-sm leading-relaxed">{SUMMARY}</p>
             </motion.div>
 
             <motion.div

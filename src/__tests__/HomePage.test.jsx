@@ -23,6 +23,11 @@ describe('HomePage', () => {
     expect(screen.getByText('About Me')).toBeInTheDocument();
   });
 
+  it('renders the Skills section', () => {
+    render(<HomePage />);
+    expect(screen.getByText('Skills')).toBeInTheDocument();
+  });
+
   it('renders the Projects section', () => {
     render(<HomePage />);
     expect(screen.getByText('Featured Projects')).toBeInTheDocument();
@@ -38,3 +43,4 @@ describe('HomePage', () => {
     expect(screen.getByText("Let's Build Something")).toBeInTheDocument();
   });
 });
+

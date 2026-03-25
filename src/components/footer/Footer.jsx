@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import useInView from '../../hooks/useInView';
-import { SOCIAL_LINKS, CONTACT_EMAIL } from '../../constants/content';
+import { SOCIAL_LINKS, CONTACT_EMAIL, CONTACT } from '../../constants/content';
 
 const GitHubIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -65,24 +65,34 @@ const Footer = () => {
             </span>
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
-            I&apos;m currently open to backend engineering and full-stack roles. If you have an
-            interesting project or an opportunity, feel free to reach out.
+            I&apos;m currently open to frontend engineering and mobile development roles. If you
+            have an interesting project or an opportunity, feel free to reach out.
           </p>
-          <motion.a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all"
-            whileHover={{ scale: 1.05, boxShadow: '0 15px 30px -5px rgba(99,102,241,0.4)' }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <EmailIcon /> Say Hello
-          </motion.a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+            <motion.a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all"
+              whileHover={{ scale: 1.05, boxShadow: '0 15px 30px -5px rgba(99,102,241,0.4)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <EmailIcon /> Say Hello
+            </motion.a>
+            {CONTACT?.phone && (
+              <a
+                href={`tel:${CONTACT.phone}`}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white font-medium transition-all"
+              >
+                📞 {CONTACT.phone}
+              </a>
+            )}
+          </div>
         </div>
       </motion.div>
 
       <div className="border-t border-slate-800 py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm font-mono">
-            &lt;SA /&gt; — Backend Engineer · Indore, India
+            &lt;SA /&gt; — Frontend Engineer · India
           </p>
 
           <div className="flex items-center gap-4">

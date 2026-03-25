@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HERO, TYPING_TEXTS, TECH_STACK, CONTACT } from '../../constants/content';
+import { Pill } from '../basic';
 
 const TypingText = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -156,12 +157,9 @@ const Hero = () => {
         {/* Tech stack chips */}
         <motion.div variants={itemVariants} className="mt-12 flex flex-wrap gap-2 justify-center">
           {TECH_STACK.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-xs font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
-            >
+            <Pill key={tech} variant="slate">
               {tech}
-            </span>
+            </Pill>
           ))}
         </motion.div>
 

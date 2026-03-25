@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import useInView from '../../hooks/useInView';
 import { SKILLS } from '../../constants/content';
+import { Pill } from '../basic';
 
 const containerVariants = {
   hidden: {},
@@ -49,12 +50,9 @@ const Skills = () => {
               <h3 className="text-slate-700 dark:text-slate-200 font-semibold text-sm mb-3">{skill.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {skill.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-3 py-1 text-xs font-mono rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors"
-                  >
+                  <Pill rounded key={item}>
                     {item}
-                  </span>
+                  </Pill>
                 ))}
               </div>
             </motion.div>

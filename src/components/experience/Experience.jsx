@@ -48,16 +48,18 @@ const ExperienceItem = ({ exp }) => (
         ))}
       </ul>
 
-      <div className="flex flex-wrap gap-1.5">
-        {exp.stack.map((s) => (
-          <span
-            key={s}
-            className="px-2 py-0.5 text-xs font-mono rounded bg-slate-700 text-slate-300 border border-slate-600/50"
-          >
-            {s}
-          </span>
-        ))}
-      </div>
+      {exp.stack?.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {exp.stack.map((s) => (
+            <span
+              key={s}
+              className="px-2 py-0.5 text-xs font-mono rounded bg-slate-700 text-slate-300 border border-slate-600/50"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+      )}
     </motion.div>
   </motion.div>
 );
@@ -81,7 +83,7 @@ const Experience = () => {
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white">Work Experience</h2>
           <p className="mt-3 text-slate-400">
-            4+ years building scalable backends and distributed systems.
+            6+ years building scalable web and mobile applications.
           </p>
         </motion.div>
 

@@ -10,15 +10,15 @@ describe('Stats', () => {
   it('renders all stat labels', () => {
     render(<Stats />);
     expect(screen.getByText('Years Experience')).toBeInTheDocument();
-    expect(screen.getByText('Users Impacted')).toBeInTheDocument();
-    expect(screen.getByText('Cost Reduction')).toBeInTheDocument();
-    expect(screen.getByText('Performance Gain')).toBeInTheDocument();
+    expect(screen.getByText('Projects Delivered')).toBeInTheDocument();
+    expect(screen.getByText('Companies')).toBeInTheDocument();
+    expect(screen.getByText('Tech Tools')).toBeInTheDocument();
   });
 
   it('renders stat descriptions', () => {
     render(<Stats />);
-    expect(screen.getByText('Building production systems')).toBeInTheDocument();
-    expect(screen.getByText('Across all platforms')).toBeInTheDocument();
+    expect(screen.getByText('Building web and mobile apps')).toBeInTheDocument();
+    expect(screen.getByText('Web and mobile applications')).toBeInTheDocument();
   });
 
   it('renders the stats section element', () => {
@@ -26,3 +26,4 @@ describe('Stats', () => {
     expect(container.querySelector('#stats')).toBeInTheDocument();
   });
 });
+

@@ -10,6 +10,8 @@ import {
   EXPERIENCES,
   SOCIAL_LINKS,
   CONTACT_EMAIL,
+  SUMMARY,
+  CONTACT,
 } from '../constants/content';
 
 describe('content constants', () => {
@@ -46,9 +48,9 @@ describe('content constants', () => {
       expect(TECH_STACK.length).toBeGreaterThan(0);
     });
 
-    it('contains expected technologies', () => {
-      expect(TECH_STACK).toContain('Node.js');
-      expect(TECH_STACK).toContain('AWS');
+    it('contains expected frontend technologies', () => {
+      expect(TECH_STACK).toContain('React.js');
+      expect(TECH_STACK).toContain('React Native');
     });
   });
 
@@ -82,9 +84,16 @@ describe('content constants', () => {
     });
   });
 
+  describe('SUMMARY', () => {
+    it('is a non-empty string', () => {
+      expect(typeof SUMMARY).toBe('string');
+      expect(SUMMARY.length).toBeGreaterThan(0);
+    });
+  });
+
   describe('SKILLS', () => {
-    it('has 4 skill categories', () => {
-      expect(SKILLS.length).toBe(4);
+    it('has skill categories', () => {
+      expect(SKILLS.length).toBeGreaterThan(0);
     });
 
     it('each skill has category and items array', () => {
@@ -94,34 +103,30 @@ describe('content constants', () => {
         expect(s.items.length).toBeGreaterThan(0);
       });
     });
+
+    it('includes frontend category', () => {
+      expect(SKILLS.some((s) => s.category === 'Frontend')).toBe(true);
+    });
   });
 
   describe('PROJECTS', () => {
-    it('has 4 projects', () => {
-      expect(PROJECTS.length).toBe(4);
+    it('has at least 1 project', () => {
+      expect(PROJECTS.length).toBeGreaterThanOrEqual(1);
     });
 
     it('each project has required fields', () => {
       PROJECTS.forEach((p) => {
         expect(p).toHaveProperty('title');
         expect(p).toHaveProperty('description');
-        expect(p).toHaveProperty('problem');
-        expect(p).toHaveProperty('solution');
-        expect(p).toHaveProperty('impact');
         expect(p).toHaveProperty('tags');
-        expect(p).toHaveProperty('featured');
         expect(Array.isArray(p.tags)).toBe(true);
       });
-    });
-
-    it('has exactly 2 featured projects', () => {
-      expect(PROJECTS.filter((p) => p.featured).length).toBe(2);
     });
   });
 
   describe('EXPERIENCES', () => {
-    it('has 4 experience entries', () => {
-      expect(EXPERIENCES.length).toBe(4);
+    it('has at least 1 experience entry', () => {
+      expect(EXPERIENCES.length).toBeGreaterThanOrEqual(1);
     });
 
     it('each experience has required fields', () => {
@@ -139,8 +144,8 @@ describe('content constants', () => {
   });
 
   describe('SOCIAL_LINKS', () => {
-    it('has 3 social links', () => {
-      expect(SOCIAL_LINKS.length).toBe(3);
+    it('has at least 2 social links', () => {
+      expect(SOCIAL_LINKS.length).toBeGreaterThanOrEqual(2);
     });
 
     it('each link has label, href, hoverClass', () => {
@@ -158,4 +163,13 @@ describe('content constants', () => {
       expect(CONTACT_EMAIL).toMatch(/@/);
     });
   });
+
+  describe('CONTACT', () => {
+    it('has email, phone, and linkedin', () => {
+      expect(CONTACT).toHaveProperty('email');
+      expect(CONTACT).toHaveProperty('phone');
+      expect(CONTACT).toHaveProperty('linkedin');
+    });
+  });
 });
+

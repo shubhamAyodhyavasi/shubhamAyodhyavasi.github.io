@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { TYPING_TEXTS, TECH_STACK } from '../../constants/content';
+import { HERO, TYPING_TEXTS, TECH_STACK, CONTACT } from '../../constants/content';
 
 const TypingText = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -103,12 +103,12 @@ const Hero = () => {
           variants={itemVariants}
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4"
         >
-          Shubham{' '}
+          {HERO.name.split(' ')[0]}{' '}
           <span
             className="bg-clip-text text-transparent"
             style={{ backgroundImage: 'linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)' }}
           >
-            Ayodhyavasi
+            {HERO.name.split(' ').slice(1).join(' ')}
           </span>
         </motion.h1>
 
@@ -125,10 +125,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Specializing in scalable microservices, AWS cloud infrastructure, and
-          high-performance distributed systems. Building backends that serve{' '}
-          <span className="text-slate-200 font-medium">millions of users</span> with{' '}
-          <span className="text-slate-200 font-medium">80% cost efficiency</span>.
+          {HERO.subtitle}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -142,15 +139,17 @@ const Hero = () => {
             whileHover={{ scale: 1.05, boxShadow: '0 20px 40px -10px rgba(99,102,241,0.5)' }}
             whileTap={{ scale: 0.97 }}
           >
-            View Projects
+            {HERO.cta[0]}
           </motion.button>
           <motion.a
-            href="#"
+            href={CONTACT.resume}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-3.5 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white font-semibold text-base transition-all duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Download Resume
+            {HERO.cta[1]}
           </motion.a>
         </motion.div>
 

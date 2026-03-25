@@ -1,0 +1,107 @@
+{
+  "hero": {
+    "name": "Shubham Ayodhyavasi",
+    "title": "Senior Frontend Engineer (React & React Native)",
+    "subtitle": "6+ years of experience building scalable, high-performance web and mobile applications",
+    "cta": ["View Projects", "Download Resume"]
+  },
+
+  "summary": "Frontend-focused Software Engineer with 6+ years of experience building scalable web and mobile applications using React and React Native. Strong expertise in modern JavaScript, state management, and responsive UI architecture. Experienced in leading features, improving code quality, and collaborating closely with product and backend teams in Agile environments.",
+
+  "skills": {
+    "frontend": ["React.js", "Next.js", "React Native"],
+    "languages": ["JavaScript", "TypeScript", "HTML5", "CSS3"],
+    "stateManagement": ["Redux Toolkit", "Redux Saga", "Redux Thunk"],
+    "styling": ["Tailwind CSS", "Styled Components", "Bootstrap", "SCSS"],
+    "testing": ["Jest", "React Testing Library"],
+    "tools": ["Git", "Bitbucket", "Jenkins", "Postman", "Figma", "Zeplin"]
+  },
+
+  "experience": [
+    {
+      "company": "Publicis Sapient",
+      "role": "Senior React / React Native Developer",
+      "duration": "June 2024 – Present",
+      "points": [
+        "Led frontend development and mentored junior developers",
+        "Built scalable web and mobile applications using React and React Native",
+        "Implemented complex UI flows with business logic and responsive design",
+        "Integrated APIs in collaboration with backend teams",
+        "Improved code quality through reviews and best practices",
+        "Used Redux Toolkit and Saga for state management",
+        "Worked with Azure for build and deployment"
+      ]
+    },
+    {
+      "company": "App World Solution / Stackular",
+      "role": "React / React Native Developer",
+      "duration": "Oct 2021 – June 2024",
+      "points": [
+        "Developed responsive web and mobile applications",
+        "Collaborated with product teams for requirements and UI design",
+        "Implemented pixel-perfect UI from design systems",
+        "Integrated REST APIs and handled frontend data flows",
+        "Used Redux Thunk for async state management",
+        "Worked with CI/CD pipelines using Jenkins"
+      ]
+    },
+    {
+      "company": "Techment Technology",
+      "role": "React Developer",
+      "duration": "Dec 2020 – Sep 2021",
+      "points": [
+        "Built UI for healthcare and education platforms",
+        "Developed reusable components using React and Redux",
+        "Implemented form handling and validation using React Hook Form",
+        "Collaborated in Agile teams with sprint planning and demos"
+      ]
+    },
+    {
+      "company": "Hiteshi Infotech",
+      "role": "React & React Native Developer",
+      "duration": "Mar 2020 – Dec 2020",
+      "points": [
+        "Developed stock trading application with real-time updates",
+        "Built cross-platform mobile applications",
+        "Implemented form validation using Formik and Yup",
+        "Worked on app deployment for Android and iOS"
+      ]
+    },
+    {
+      "company": "ThirdEssential IT Solution",
+      "role": "Software Developer",
+      "duration": "May 2019 – Mar 2020",
+      "points": [
+        "Built reusable React components and improved legacy code",
+        "Developed responsive UI using JavaScript and CSS frameworks",
+        "Integrated REST APIs and handled authentication flows",
+        "Worked on WordPress-based frontend systems"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Stock Trading Platform",
+      "description": "Real-time stock trading application with live market data updates",
+      "tech": ["React", "React Native", "Redux", "WebSockets"]
+    },
+    {
+      "name": "Teletherapy Platform",
+      "description": "Video-based communication platform for therapists and families",
+      "tech": ["React", "Redux"]
+    }
+  ],
+
+  "education": {
+    "degree": "Bachelor of Engineering",
+    "institution": "RGPV, India"
+  },
+
+  "contact": {
+    "email": "shubhamgupta279@gmail.com",
+    "phone": "+918982966776",
+    "linkedin": "https://www.linkedin.com/in/shubham-ayodhyavasi-441888119/",
+    "resume": "https://docs.google.com/document/d/1dIBovZbW1twIwq9gqjNw5evfvBVANsek/edit?usp=drive_link&ouid=115814756656002760539&rtpof=true&sd=true"
+  }
+}

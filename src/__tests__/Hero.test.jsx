@@ -22,11 +22,11 @@ describe('Hero', () => {
     expect(screen.getByRole('link', { name: /download resume/i })).toBeInTheDocument();
   });
 
-  it('renders tech stack chips', () => {
+  it('renders tech stack chips with frontend technologies', () => {
     render(<Hero />);
-    expect(screen.getByText('Node.js')).toBeInTheDocument();
-    expect(screen.getByText('AWS')).toBeInTheDocument();
-    expect(screen.getByText('Docker')).toBeInTheDocument();
+    expect(screen.getByText('React.js')).toBeInTheDocument();
+    expect(screen.getByText('React Native')).toBeInTheDocument();
+    expect(screen.getByText('TypeScript')).toBeInTheDocument();
   });
 
   it('renders the open to opportunities badge', () => {
@@ -52,3 +52,4 @@ describe('Hero', () => {
     document.body.removeChild(el);
   });
 });
+

@@ -18,7 +18,7 @@ const Skills = () => {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" className="py-24 bg-slate-950">
+    <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
@@ -30,8 +30,8 @@ const Skills = () => {
           <span className="text-indigo-400 font-mono text-sm tracking-widest uppercase">
             Expertise
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white">Skills</h2>
-          <p className="mt-3 text-slate-400">Technologies and tools I work with every day.</p>
+          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Skills</h2>
+          <p className="mt-3 text-slate-600 dark:text-slate-400">Technologies and tools I work with every day.</p>
         </motion.div>
 
         <motion.div
@@ -44,9 +44,9 @@ const Skills = () => {
             <motion.div
               key={skill.category}
               variants={itemVariants}
-              className="p-5 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-indigo-500/40 transition-colors"
+              className="p-5 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:border-indigo-500/40 transition-colors"
             >
-              <h3 className="text-slate-200 font-semibold text-sm mb-3">{skill.category}</h3>
+              <h3 className="text-slate-700 dark:text-slate-200 font-semibold text-sm mb-3">{skill.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {skill.items.map((item) => (
                   <span

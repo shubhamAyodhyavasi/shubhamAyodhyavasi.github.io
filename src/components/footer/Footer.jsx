@@ -53,7 +53,7 @@ const Footer = () => {
   const inView = useInView(ref, { once: true });
 
   return (
-    <footer id="contact" className="bg-slate-950 border-t border-slate-800">
+    <footer id="contact" className="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ const Footer = () => {
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             Open to Opportunities
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             Let&apos;s Build Something{' '}
             <span
               className="bg-clip-text text-transparent"
@@ -75,7 +75,7 @@ const Footer = () => {
               Amazing
             </span>
           </h2>
-          <p className="text-slate-400 mb-8 leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
             I&apos;m currently open to frontend engineering and mobile development roles. If you
             have an interesting project or an opportunity, feel free to reach out.
           </p>
@@ -93,7 +93,7 @@ const Footer = () => {
                 href={`https://wa.me/${CONTACT.phone}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white font-medium transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-medium transition-all"
               >
                 <WhatsAppIcon /> Let’s talk
               </a>
@@ -102,9 +102,9 @@ const Footer = () => {
         </div>
       </motion.div>
 
-      <div className="border-t border-slate-800 py-8">
+      <div className="border-t border-slate-200 dark:border-slate-800 py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm font-mono">
+          <p className="text-slate-500 dark:text-slate-500 text-sm font-mono">
             &lt;SA /&gt; — Frontend Engineer · India
           </p>
 
@@ -116,7 +116,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className={`text-slate-500 ${link.hoverClass} transition-colors`}
+                className={`text-slate-400 dark:text-slate-500 ${link.hoverClass} transition-colors`}
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -125,7 +125,7 @@ const Footer = () => {
             ))}
           </div>
 
-          <p className="text-slate-600 text-xs">
+          <p className="text-slate-400 dark:text-slate-600 text-xs">
             © {new Date().getFullYear()} Shubham Ayodhyavasi. All rights reserved.
           </p>
         </div>
